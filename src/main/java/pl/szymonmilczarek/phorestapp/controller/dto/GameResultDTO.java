@@ -2,7 +2,6 @@ package pl.szymonmilczarek.phorestapp.controller.dto;
 
 import lombok.Getter;
 import lombok.Setter;
-import pl.szymonmilczarek.phorestapp.dao.entity.Player;
 import pl.szymonmilczarek.phorestapp.model.GameContext;
 
 import java.util.List;

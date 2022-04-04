@@ -95,5 +95,17 @@ task integrationTest(type: Test) {
 }
 
 checkstyle {
-    configFile = file("${rootDir}/checkstyle.xml")
+    configFile = file("$rootDir/checkstyle.xml")
+}
+
+checkstyleMain {
+    source = 'src/main/java'
+}
+checkstyleTest {
+    source = 'src/test/java/'
+    source = 'src/test/groovy/'
+}
+checkstyleIntegrationTest {
+    source = 'src/integrationTest/java/'
+    source = 'src/integrationTest/groovy/'
 }

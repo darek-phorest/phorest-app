@@ -9,9 +9,9 @@ import java.util.Random;
 @Component
 public class ResultGenerator {
 
-    public final static Integer SLOTS = 4;
+    public static final  Integer SLOTS = 4;
 
-    private final static Map<Integer, String> resultMap = Map.of(
+    private static final Map<Integer, String> RESULT_MAP = Map.of(
             1, "black",
             2, "white",
             3, "green",
@@ -21,7 +21,7 @@ public class ResultGenerator {
     public ArrayList<String> getResult() {
         ArrayList<String> result = new ArrayList<>();
         for (int i = 0; i < SLOTS; i++) {
-            result.add(resultMap.get(getRandomNumberInRange(1, SLOTS)));
+            result.add(RESULT_MAP.get(getRandomNumberInRange(1, SLOTS)));
         }
         return result;
     }

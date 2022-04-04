@@ -2,7 +2,6 @@ package pl.szymonmilczarek.phorestapp.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.stereotype.Component;
 import pl.szymonmilczarek.phorestapp.dao.entity.Machine;
 import pl.szymonmilczarek.phorestapp.dao.entity.Player;
 import pl.szymonmilczarek.phorestapp.utils.ResultGenerator;
@@ -45,7 +44,6 @@ public class GameContext {
         this.win = false;
         this.result.clear();
     }
-
 
 
 }
