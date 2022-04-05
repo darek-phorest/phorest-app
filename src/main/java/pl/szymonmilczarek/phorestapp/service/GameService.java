@@ -51,7 +51,7 @@ public class GameService {
         return money;
     }
 
-    private Player getPlayer(Long id) {
+    public Player getPlayer(Long id) {
         return playerRepository.findById(id)
                 .orElseThrow(() -> new EntityDoesNotExistException(String.valueOf(id)));
     }

@@ -1,11 +1,13 @@
 package pl.szymonmilczarek.phorestapp.controller.dto;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pl.szymonmilczarek.phorestapp.model.GameContext;
 
 import java.util.List;
 
+@NoArgsConstructor
 @Getter
 @Setter
 public class GameResultDTO {

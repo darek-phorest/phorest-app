@@ -9,7 +9,7 @@ services:
       dockerfile: Dockerfile
     restart: on-failure:2
     environment:
-      SPRING_PROFILE_ACTIVE: local
+      SPRING_PROFILE_ACTIVE: docker
     ports:
       - 8080:8080
     depends_on:
