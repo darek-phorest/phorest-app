@@ -16,6 +16,8 @@ import javax.transaction.Transactional;
 @Service
 public class GameService {
 
+    // 🐛 seams like keeping GameContext in memory at the GameService level prohibits having concurrent games
+    // any thoughts around that and having a solution that would allow concurrent games ?
     private GameContext gameContext;
 
     private final MachineRepository machineRepository;
@@ -28,6 +30,10 @@ public class GameService {
         this.playerRepository = playerRepository;
     }
 
+    // ❓ do you think the Service layer should know about the DTO ?
+    // In my opinion it should return an internal model and not depend on the upper layer,
+    // by making the upper layer depend on the service and the service depend on the upper layer model
+    // we create a circular dependency
     public PlayerDTO startGame(Long playerId, Long money) {
         var player = getPlayer(playerId);
         player.setPlayerMoney(player.getPlayerMoney() + money);
@@ -70,7 +76,7 @@ public class GameService {
             throw new NotEnoughMoneyException(String.valueOf(player.getId()));
         }
     }
-
+    // ❓ are you sure the @Transactional annotation will be picked up here if the method is called within other method of this class ?
     @Transactional
     public void updateStateAfterGame() {
         var player = gameContext.getPlayer();

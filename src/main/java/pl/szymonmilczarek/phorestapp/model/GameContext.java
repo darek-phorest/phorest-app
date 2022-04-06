@@ -11,6 +11,7 @@ import java.util.List;
 
 @Getter
 @Setter
+// ❓ is there a reason that this class is not an Entity and not persisted together with Player and Machine
 public class GameContext {
 
     public static final Long DEFAULT_PLAY_VALUE = 1L;
@@ -34,7 +35,7 @@ public class GameContext {
         this.playerAvailableMoney = player.getPlayerMoney() - DEFAULT_PLAY_VALUE;
         this.possibleWin = machine.getMachineMoney() + DEFAULT_PLAY_VALUE;
         this.result = generator.getResult();
-        this.win = this.getResult().stream().distinct().count() == 1;
+        this.win = this.getResult().stream().distinct().count() == 1; // ❓ is there a way to avoid the train wreck here: this.getResult().stream().distinct().count()
         return this;
     }
 

@@ -43,6 +43,8 @@ class GameServiceTest extends Specification {
             thrown(NotEnoughMoneyException)
     }
 
+    /* ❓ Do we need to repeat the same test here 100 times with the same set of data ? Would it be better to split it into more
+    distinct tests testing wins and loses separately ? */
     @Unroll("test repeated #i time")
     def "play game return win or lost result"() {
         given:

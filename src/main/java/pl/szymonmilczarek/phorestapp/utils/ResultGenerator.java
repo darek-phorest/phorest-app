@@ -3,6 +3,7 @@ package pl.szymonmilczarek.phorestapp.utils;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Random;
 
@@ -18,12 +19,13 @@ public class ResultGenerator {
             4, "yellow"
     );
 
-    public ArrayList<String> getResult() {
-        ArrayList<String> result = new ArrayList<>();
-        for (int i = 0; i < SLOTS; i++) {
-            result.add(RESULT_MAP.get(getRandomNumberInRange(1, SLOTS)));
-        }
-        return result;
+    public ArrayList<String> getResult() { // Do we need to return the specific list type here ArrayList instead of interface ?
+        return new ArrayList<>(Arrays.asList("black", "black", "black", "black"));
+//        ArrayList<String> result = new ArrayList<>();
+//        for (int i = 0; i < SLOTS; i++) {
+//            result.add(RESULT_MAP.get(getRandomNumberInRange(1, SLOTS)));
+//        }
+//        return result;
     }
 
     private static int getRandomNumberInRange(int min, int max) {

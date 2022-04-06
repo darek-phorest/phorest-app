@@ -20,7 +20,7 @@ public class GameController {
             @RequestParam(name = "playerId") Long playerId,
             @RequestParam(name = "money") Long money
     ) {
-        return gameService.startGame(playerId, money);
+        return gameService.startGame(playerId, money); // ❓ how does the client create a Player in the system ?
     }
 
     @PostMapping("/play")

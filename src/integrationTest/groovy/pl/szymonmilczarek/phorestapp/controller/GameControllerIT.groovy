@@ -13,6 +13,7 @@ import pl.szymonmilczarek.phorestapp.util.PhorestAppSpringBootApplicationTest
 import spock.lang.Unroll
 
 @PhorestAppSpringBootApplicationTest
+// 👏 great to see those seeds for the IT tests
 @Sql(scripts = "classpath:/seed/clear_data.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 @Sql(scripts = "classpath:/seed/phorest_app_data.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 class GameControllerIT extends PhorestAppContainerConfig {
@@ -49,7 +50,7 @@ class GameControllerIT extends PhorestAppContainerConfig {
                 updatedMachine.get().machineMoney == 1001
             }
         where:
-            i << (1..100)
+            i << (1..100) // ❓ do we need to run it 100 times ?
     }
 
     def "withdraw money should update player data [POST]"() {

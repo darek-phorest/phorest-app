@@ -26,6 +26,7 @@ class PhorestAppContainerConfig extends PhorestAppRestConfig {
     static {
         Network network = Network.newNetwork()
 
+        // 👏 great to see docker being used for IT tests
         postgres = new PostgreSQLContainer<>("postgres:latest")
                 .withUsername("phorest-app")
                 .withPassword("phorest-app")
